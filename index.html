@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Надежный рейс</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #08163d;
+      color: #ffffff;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav h1 {
+      color: orange;
+      font-size: 22px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-size: 15px;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: orange;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 20px 70px;
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.72)),
+        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h2 {
+      font-size: 46px;
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #e5e7eb;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 15px 28px;
+      background: orange;
+      color: #111827;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      box-shadow: 0 10px 24px rgba(255, 165, 0, 0.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-6px);
+      background: #ffb84d;
+      box-shadow: 0 18px 34px rgba(255, 165, 0, 0.35);
+    }
+
+    .status {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 12px 18px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(74, 222, 128, 0.28);
+      border-radius: 12px;
+      color: #4ade80;
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    /* COMMON SECTION */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 26px;
+    }
+
+    /* CARDS */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 290px;
+      background: #1c2b4a;
+      border-radius: 18px;
+      padding: 24px 22px;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: #23365d;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .service-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #d6deea;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .review {
+      width: 300px;
+      background: #1c2b4a;
+      border-radius: 18px;
+      padding: 22px 20px 20px;
+      text-align: left;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .review:hover {
+      transform: translateY(-10px);
+      background: #23365d;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .review::before {
+      content: "“";
+      position: absolute;
+      left: 14px;
+      top: 0;
+      font-size: 44px;
+      line-height: 1;
+      color: rgba(255, 165, 0, 0.25);
+      font-weight: 700;
+    }
+
+    .stars {
+      color: orange;
+      font-size: 18px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    .review p {
+      color: #f1f5f9;
+      line-height: 1.55;
+      margin-bottom: 14px;
+      margin-top: 10px;
+    }
+
+    .review b {
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    /* MAP */
+    .map-wrap {
+      max-width: 950px;
+      margin: 0 auto;
+      background: #102246;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #d7e9de;
+    }
+
+    .map-img {
+      width: 100%;
+      display: block;
+    }
+
+    .zone {
+      position: absolute;
+      cursor: pointer;
+      border-radius: 999px;
+      background: rgba(255, 165, 0, 0.16);
+      border: 2px solid rgba(255, 165, 0, 0.55);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .zone:hover {
+      transform: scale(1.08);
+      background: rgba(255, 165, 0, 0.28);
+      box-shadow: 0 0 0 8px rgba(255, 165, 0, 0.12);
+    }
+
+    /* Примерные зоны под твою карту */
+    .zone-center {
+      top: 44%;
+      left: 47%;
+      width: 10%;
+      height: 12%;
+    }
+
+    .zone-pobeda {
+      top: 70%;
+      left: 58%;
+      width: 12%;
+      height: 12%;
+    }
+
+    .zone-topol {
+      top: 73%;
+      left: 40%;
+      width: 12%;
+      height: 12%;
+    }
+
+    .zone-solnechniy {
+      top: 36%;
+      left: 65%;
+      width: 12%;
+      height: 11%;
+    }
+
+    .zone-left-bank {
+      top: 24%;
+      left: 54%;
+      width: 15%;
+      height: 13%;
+    }
+
+    .zone-parus {
+      top: 44%;
+      left: 18%;
+      width: 13%;
+      height: 12%;
+    }
+
+    .zone-info {
+      margin-top: 16px;
+      min-height: 28px;
+      color: #4ade80;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    /* FAQ */
+    .faq .card {
+      text-align: left;
+    }
+
+    .faq .card-title {
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #102246;
+      border-radius: 20px;
+      padding: 28px 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      color: #e5e7eb;
+      font-size: 16px;
+    }
+
+    .contact-buttons {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .contact-buttons a {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 10px;
+      color: white;
+      font-weight: 600;
+      transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+    }
+
+    .contact-buttons a:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+      opacity: 0.96;
+    }
+
+    .call { background: #ef4444; }
+    .tg { background: #229ED9; }
+    .viber { background: #7360f2; }
+
+    /* FLOAT BUTTON */
+    .float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #229ED9;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 16px 30px rgba(34, 158, 217, 0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+      z-index: 999;
+    }
+
+    .float:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 20px 36px rgba(34, 158, 217, 0.45);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      color: #aeb9cc;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .zone-center,
+      .zone-pobeda,
+      .zone-topol,
+      .zone-solnechniy,
+      .zone-left-bank,
+      .zone-parus {
+        border-width: 1.5px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: 86vh;
+        padding-top: 110px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 44px 16px;
+      }
+
+      .card,
+      .review {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .zone-info {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>Надежный рейс</h1>
+      <div class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#map">Карта</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Профессиональные грузчики в Днепре</h2>
+      <p>Быстро • Аккуратно • Без повреждений</p>
+      <a href="#contact" class="btn">Заказать</a>
+      <div id="status" class="status"></div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Наши услуги</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="service-icon">📦</div>
+        <div class="card-title">Перенос мебели</div>
+        <div class="card-text">Поднимем, вынесем, занесем и аккуратно расставим без лишней суеты.</div>
+      </div>
+
+      <div class="card">
+        <div class="service-icon">🚛</div>
+        <div class="card-title">Переезды</div>
+        <div class="card-text">Квартирные, офисные и срочные переезды по Днепру и ближайшим районам.</div>
+      </div>
+
+      <div class="card">
+        <div class="service-icon">🚚</div>
+        <div class="card-title">Грузовая машина</div>
+        <div class="card-text">Своя машина под мебель, технику, коробки и стройматериалы.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section">
+    <h2>Отзывы</h2>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Перевозили квартиру с техникой. Приехали вовремя, холодильник и стиралку подняли аккуратно, ничего не поцарапали.</p>
+        <b>— Максим, Днепр</b>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Заказывал грузчиков на Победу. Нормальные ребята, без лишних разговоров, всё сделали быстро и спокойно.</p>
+        <b>— Андрей</b>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>Подняли мебель на 9 этаж без лифта. Думала, будет дольше, но справились быстрее, чем ожидала.</p>
+        <b>— Ирина</b>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="section">
+    <h2>Карта обслуживания</h2>
+
+    <div class="map-wrap">
+      <div class="map-container">
+        <img src="map.png" alt="Карта Днепра" class="map-img">
+
+        <div class="zone zone-center" data-text="Центр — подача в течение 20 минут"></div>
+        <div class="zone zone-pobeda" data-text="Победа — подача в течение 25 минут"></div>
+        <div class="zone zone-topol" data-text="Тополь — минимальный заказ от 1 часа"></div>
+        <div class="zone zone-solnechniy" data-text="Солнечный — подача в течение 1 часа"></div>
+        <div class="zone zone-left-bank" data-text="Левый берег — подача в течение 30–35 минут"></div>
+        <div class="zone zone-parus" data-text="Парус и Покровский — минимальный заказ от 1.5 часов"></div>
+      </div>
+
+      <div id="zoneInfo" class="zone-info">Наведите на район на карте</div>
+    </div>
+  </section>
+
+  <section id="faq" class="section faq">
+    <h2>Частые вопросы</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">🌵 А если грузчик уронит мой любимый кактус?</div>
+        <div class="card-text">Несем материальную ответственность за груз. Если по нашей вине что-то повреждается, вопрос не игнорируем, а решаем.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⏱ Приедут ли вовремя или ждать полдня?</div>
+        <div class="card-text">Предупреждаем заранее, подтверждаем выезд и держим связь по телефону. Машину не “теряем”, а ведем по маршруту.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💸 Цена не вырастет уже на месте?</div>
+        <div class="card-text">Стоимость обсуждаем заранее. Если объем работ не меняется, цена тоже не меняется.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Связаться с нами</h2>
+    <div class="contact-box">
+      <p>📞 +380933102110</p>
+      <p>👤 Старокольцев Илья</p>
+      <p>Работаем по всему Днепру и ближайшим районам</p>
+
+      <div class="contact-buttons">
+        <a class="call" href="tel:+380933102110">Позвонить</a>
+        <a class="tg" href="https://t.me/managerrdp" target="_blank">Telegram</a>
+        <a class="viber" href="viber://chat?number=%2B380933102110">Viber</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Надежный рейс
+  </footer>
+
+  <a href="https://t.me/managerrdp" class="float" target="_blank">💬</a>
+
+  <script>
+    function updateStatus() {
+      const brigades = Math.floor(Math.random() * 3) + 2; // 2-4
+      const times = [20, 25, 30, 35, 40];
+      const time = times[Math.floor(Math.random() * times.length)];
+
+      const text = `Сейчас в Днепре свободны ${brigades} бригады. Ближайшая подача — ${time} минут`;
+      document.getElementById("status").innerText = text;
+    }
+
+    updateStatus();
+    setInterval(updateStatus, 3600000);
+
+    const zoneInfo = document.getElementById("zoneInfo");
+    const zones = document.querySelectorAll(".zone");
+
+    zones.forEach(zone => {
+      zone.addEventListener("mouseenter", function () {
+        zoneInfo.innerText = this.dataset.text;
+      });
+
+      zone.addEventListener("mouseleave", function () {
+        zoneInfo.innerText = "Наведите на район на карте";
+      });
+    });
+  </script>
+
+</body>
+</html>
