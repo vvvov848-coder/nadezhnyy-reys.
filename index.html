@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -275,7 +275,6 @@
       box-shadow: 0 0 0 8px rgba(255, 165, 0, 0.12);
     }
 
-    /* Примерные зоны под твою карту */
     .zone-center {
       top: 44%;
       left: 47%;
@@ -350,6 +349,19 @@
       margin-bottom: 10px;
       color: #e5e7eb;
       font-size: 16px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .contact-person {
+      text-align: center;
     }
 
     .contact-buttons {
@@ -461,6 +473,10 @@
       .zone-info {
         font-size: 15px;
       }
+
+      .contact-row {
+        gap: 20px;
+      }
     }
   </style>
 </head>
@@ -468,120 +484,130 @@
 
   <header>
     <nav>
-      <h1>Надежный рейс</h1>
+      <h1>Надійний рейс</h1>
       <div class="nav-links">
-        <a href="#services">Услуги</a>
-        <a href="#reviews">Отзывы</a>
+        <a href="#services">Послуги</a>
+        <a href="#reviews">Відгуки</a>
         <a href="#map">Карта</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Контакты</a>
+        <a href="#contact">Контакти</a>
       </div>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-content">
-      <h2>Профессиональные грузчики в Днепре</h2>
-      <p>Быстро • Аккуратно • Без повреждений</p>
-      <a href="#contact" class="btn">Заказать</a>
+      <h2>Професійні вантажники у Дніпрі</h2>
+      <p>Швидко • Акуратно • Без пошкоджень</p>
+      <a href="#contact" class="btn">Замовити</a>
       <div id="status" class="status"></div>
     </div>
   </section>
 
   <section id="services" class="section">
-    <h2>Наши услуги</h2>
+    <h2>Наші послуги</h2>
     <div class="cards">
       <div class="card">
         <div class="service-icon">📦</div>
-        <div class="card-title">Перенос мебели</div>
-        <div class="card-text">Поднимем, вынесем, занесем и аккуратно расставим без лишней суеты.</div>
+        <div class="card-title">Перенесення меблів</div>
+        <div class="card-text">Піднімемо, винесемо, занесемо й акуратно розставимо без зайвої метушні.</div>
       </div>
 
       <div class="card">
         <div class="service-icon">🚛</div>
-        <div class="card-title">Переезды</div>
-        <div class="card-text">Квартирные, офисные и срочные переезды по Днепру и ближайшим районам.</div>
+        <div class="card-title">Переїзди</div>
+        <div class="card-text">Квартирні, офісні та термінові переїзди по Дніпру й найближчих районах.</div>
       </div>
 
       <div class="card">
         <div class="service-icon">🚚</div>
-        <div class="card-title">Грузовая машина</div>
-        <div class="card-text">Своя машина под мебель, технику, коробки и стройматериалы.</div>
+        <div class="card-title">Вантажна машина</div>
+        <div class="card-text">Власна машина для меблів, техніки, коробок і будматеріалів.</div>
       </div>
     </div>
   </section>
 
   <section id="reviews" class="section">
-    <h2>Отзывы</h2>
+    <h2>Відгуки</h2>
     <div class="reviews">
       <div class="review">
         <div class="stars">★★★★★</div>
-        <p>Перевозили квартиру с техникой. Приехали вовремя, холодильник и стиралку подняли аккуратно, ничего не поцарапали.</p>
-        <b>— Максим, Днепр</b>
+        <p>Перевозили квартиру з технікою. Приїхали вчасно, холодильник і пральну машину підняли акуратно, нічого не подряпали.</p>
+        <b>— Максим, Дніпро</b>
       </div>
 
       <div class="review">
         <div class="stars">★★★★★</div>
-        <p>Заказывал грузчиков на Победу. Нормальные ребята, без лишних разговоров, всё сделали быстро и спокойно.</p>
-        <b>— Андрей</b>
+        <p>Замовляв вантажників на Перемогу. Нормальні хлопці, без зайвих розмов, усе зробили швидко й спокійно.</p>
+        <b>— Андрій</b>
       </div>
 
       <div class="review">
         <div class="stars">★★★★☆</div>
-        <p>Подняли мебель на 9 этаж без лифта. Думала, будет дольше, но справились быстрее, чем ожидала.</p>
-        <b>— Ирина</b>
+        <p>Підняли меблі на 9 поверх без ліфта. Думала, що буде довше, але впоралися швидше, ніж очікувала.</p>
+        <b>— Ірина</b>
       </div>
     </div>
   </section>
 
   <section id="map" class="section">
-    <h2>Карта обслуживания</h2>
+    <h2>Карта обслуговування</h2>
 
     <div class="map-wrap">
       <div class="map-container">
-        <img src="map.png" alt="Карта Днепра" class="map-img">
+        <img src="map.png" alt="Карта Дніпра" class="map-img">
 
-        <div class="zone zone-center" data-text="Центр — подача в течение 20 минут"></div>
-        <div class="zone zone-pobeda" data-text="Победа — подача в течение 25 минут"></div>
-        <div class="zone zone-topol" data-text="Тополь — минимальный заказ от 1 часа"></div>
-        <div class="zone zone-solnechniy" data-text="Солнечный — подача в течение 1 часа"></div>
-        <div class="zone zone-left-bank" data-text="Левый берег — подача в течение 30–35 минут"></div>
-        <div class="zone zone-parus" data-text="Парус и Покровский — минимальный заказ от 1.5 часов"></div>
+        <div class="zone zone-center" data-text="Центр — подача протягом 20 хвилин"></div>
+        <div class="zone zone-pobeda" data-text="Перемога — подача протягом 25 хвилин"></div>
+        <div class="zone zone-topol" data-text="Тополя — мінімальне замовлення від 1 години"></div>
+        <div class="zone zone-solnechniy" data-text="Сонячний — подача протягом 1 години"></div>
+        <div class="zone zone-left-bank" data-text="Лівий берег — подача протягом 30–35 хвилин"></div>
+        <div class="zone zone-parus" data-text="Парус і Покровський — мінімальне замовлення від 1.5 години"></div>
       </div>
 
-      <div id="zoneInfo" class="zone-info">Наведите на район на карте</div>
+      <div id="zoneInfo" class="zone-info">Наведіть на район на карті</div>
     </div>
   </section>
 
   <section id="faq" class="section faq">
-    <h2>Частые вопросы</h2>
+    <h2>Часті запитання</h2>
     <div class="cards">
       <div class="card">
-        <div class="card-title">🌵 А если грузчик уронит мой любимый кактус?</div>
-        <div class="card-text">Несем материальную ответственность за груз. Если по нашей вине что-то повреждается, вопрос не игнорируем, а решаем.</div>
+        <div class="card-title">🌵 А якщо вантажник упустить мій улюблений кактус?</div>
+        <div class="card-text">Несёмо матеріальну відповідальність за вантаж. Якщо з нашої вини щось пошкоджується, ми не ігноруємо проблему, а вирішуємо її.</div>
       </div>
 
       <div class="card">
-        <div class="card-title">⏱ Приедут ли вовремя или ждать полдня?</div>
-        <div class="card-text">Предупреждаем заранее, подтверждаем выезд и держим связь по телефону. Машину не “теряем”, а ведем по маршруту.</div>
+        <div class="card-title">⏱ Чи приїдуть вчасно, чи чекати пів дня?</div>
+        <div class="card-text">Попереджаємо заздалегідь, підтверджуємо виїзд і тримаємо зв’язок телефоном. Машину не “губимо”, а ведемо по маршруту.</div>
       </div>
 
       <div class="card">
-        <div class="card-title">💸 Цена не вырастет уже на месте?</div>
-        <div class="card-text">Стоимость обсуждаем заранее. Если объем работ не меняется, цена тоже не меняется.</div>
+        <div class="card-title">💸 Ціна не виросте вже на місці?</div>
+        <div class="card-text">Вартість обговорюємо заздалегідь. Якщо обсяг робіт не змінюється, ціна теж не змінюється.</div>
       </div>
     </div>
   </section>
 
   <section id="contact" class="section">
-    <h2>Связаться с нами</h2>
+    <h2>Зв’язатися з нами</h2>
     <div class="contact-box">
-      <p>📞 +380933102110</p>
-      <p>👤 Старокольцев Илья</p>
-      <p>Работаем по всему Днепру и ближайшим районам</p>
+      <div class="contact-row">
+        <div class="contact-person">
+          <p>📞 +380933102110</p>
+          <p>👤 Старокольцев Ілля</p>
+        </div>
+
+        <div class="contact-person">
+          <p>📞 +380666435947</p>
+          <p>👤 Оганесян Давід</p>
+        </div>
+      </div>
+
+      <p>Працюємо по всьому Дніпру й найближчих районах</p>
 
       <div class="contact-buttons">
-        <a class="call" href="tel:+380933102110">Позвонить</a>
+        <a class="call" href="tel:+380933102110">Подзвонити</a>
         <a class="tg" href="https://t.me/managerrdp" target="_blank">Telegram</a>
         <a class="viber" href="viber://chat?number=%2B380933102110">Viber</a>
       </div>
@@ -589,18 +615,18 @@
   </section>
 
   <footer>
-    © 2026 Надежный рейс
+    © 2026 Надійний рейс
   </footer>
 
   <a href="https://t.me/managerrdp" class="float" target="_blank">💬</a>
 
   <script>
     function updateStatus() {
-      const brigades = Math.floor(Math.random() * 3) + 2; // 2-4
+      const brigades = Math.floor(Math.random() * 3) + 2;
       const times = [20, 25, 30, 35, 40];
       const time = times[Math.floor(Math.random() * times.length)];
 
-      const text = `Сейчас в Днепре свободны ${brigades} бригады. Ближайшая подача — ${time} минут`;
+      const text = `Зараз у Дніпрі вільні ${brigades} бригади. Найближча подача — ${time} хвилин`;
       document.getElementById("status").innerText = text;
     }
 
@@ -616,10 +642,9 @@
       });
 
       zone.addEventListener("mouseleave", function () {
-        zoneInfo.innerText = "Наведите на район на карте";
+        zoneInfo.innerText = "Наведіть на район на карті";
       });
     });
   </script>
-
 </body>
 </html>
